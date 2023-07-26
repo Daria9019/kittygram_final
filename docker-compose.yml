@@ -20,6 +20,8 @@ services:
       - static:/backend_static
       - media:/app/media
     container_name: kittygram_backend
+    depends_on:
+      - db
 
     
   frontend:
@@ -29,6 +31,7 @@ services:
     volumes:
       - static:/frontend_static
     container_name: kittygram_frontend
+    
 
   gateway:
     build: ./nginx/
