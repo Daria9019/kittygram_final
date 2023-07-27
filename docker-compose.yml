@@ -39,6 +39,6 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/app/static/
+      - static:/static/
       - media:/app/media/
     

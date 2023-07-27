@@ -86,7 +86,7 @@ jobs:
           # Для каждого пересобранного образа 
           # устанавливаем тег latest, чтобы потом
           # на сервере и в docker-compose.yml не указывать версию
-          tags: dara23213/kittygrami_backend:latest
+          tags: dara23213/kittygram_backend:latest
 
   frontend_tests:
     runs-on: ubuntu-latest
@@ -131,7 +131,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: dara23213/kittygrami_frontend:latest
+          tags: dara23213/kittygram_frontend:latest
 
   build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
@@ -151,7 +151,7 @@ jobs:
         with:
           context: ./nginx/
           push: true
-          tags: dara23213/kittygrami_gatewayd:latest
+          tags: dara23213/kittygram_gateway:latest
 
   deploy:
     runs-on: ubuntu-latest
