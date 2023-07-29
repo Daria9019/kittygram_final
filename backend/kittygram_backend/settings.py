@@ -8,7 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'DEFAULT_KEY')
-DEBUG = os.getenv('DEBUG')
+DEBUG_str = os.getenv('DEBUG')
+DEBUG = DEBUG_str.lower() in ['1', 'true']
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
