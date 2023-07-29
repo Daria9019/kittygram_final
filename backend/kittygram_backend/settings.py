@@ -9,7 +9,11 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'DEFAULT_KEY')
 DEBUG_str = os.getenv('DEBUG')
-DEBUG = DEBUG_str.lower() in ['1', 'true']
+
+if DEBUG_str is not None:
+    DEBUG = DEBUG_str.lower() in ['1', 'true']
+else:
+    DEBUG = False
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
