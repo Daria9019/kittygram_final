@@ -1,8 +1,5 @@
 FROM python:3.9
 
-
-ENV DJANGO_SETTINGS_MODULE=kittygram_backend.settings.production
-
 WORKDIR /app
 
 COPY requirements.txt .
