@@ -1,5 +1,13 @@
 #!/bin/bash
 
-python manage.py migrate
+if [ -d "/app/collected_static" ]; then
+  cp -r /app/collected_static/. /backend_static/static/
+else
+  echo "Error: /app/collected_static not found."
+  exit 1
+fi
 
+python manage.py migrate
 python manage.py collectstatic --noinput
+
+exec gunicorn --bind 0.0.0.0:9000 kittygram_backend.wsgi
