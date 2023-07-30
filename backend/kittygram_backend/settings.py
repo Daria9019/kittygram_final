@@ -8,12 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'DEFAULT_KEY')
-DEBUG_str = os.getenv('DEBUG')
-
-if DEBUG_str is not None:
-    DEBUG = DEBUG_str.lower() in ['1', 'true']
-else:
-    DEBUG = False
+DEBUG = os.getenv('DEBUG', 'false').lower() in ['1', 'true']
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
