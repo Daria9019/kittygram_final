@@ -19,12 +19,12 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media
-      - ./entrypoint.sh:/app/entrypoint.sh  # Монтируем файл entrypoint.sh внутрь контейнера
     container_name: kittygram_backend
     depends_on:
       - db
-    entrypoint: /app/entrypoint.sh  # Точка входа для сервиса backend
+    entrypoint: /app/entrypoint.sh
 
+    
   frontend:
     env_file: .env
     build: ./frontend/
@@ -32,6 +32,7 @@ services:
     volumes:
       - static:/frontend_static
     container_name: kittygram_frontend
+    
 
   gateway:
     build: ./nginx/
@@ -41,3 +42,4 @@ services:
     volumes:
       - static:/static/
       - media:/app/media/
+    
