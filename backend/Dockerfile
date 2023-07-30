@@ -12,5 +12,8 @@ COPY . .
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+# Копируем collected_static из backend внутрь контейнера
+COPY backend/collected_static /app/collected_static
+
 # Указываем entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
