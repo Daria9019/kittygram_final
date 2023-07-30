@@ -14,15 +14,17 @@ services:
     container_name: db
 
   backend:
-    build: ./backend/
-    env_file: .env
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    entrypoint: ./entrypoint.sh
     volumes:
-      - static:/backend_static
-      - media:/app/media
-    container_name: kittygram_backend
+     - static_value:/app/static/
+     - media_value:/app/media/
     depends_on:
-      - db
-    
+     - db
+    env_file:
+     - ./.env
 
     
   frontend:
