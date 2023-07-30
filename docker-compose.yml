@@ -22,7 +22,7 @@ services:
     container_name: kittygram_backend
     depends_on:
       - db
-    entrypoint: /app/entrypoint.sh
+    
 
     
   frontend:
